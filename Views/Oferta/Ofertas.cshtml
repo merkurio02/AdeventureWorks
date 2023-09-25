@@ -1,0 +1,113 @@
+﻿@model IEnumerable<AdventureWorks.Dto.OfertaDto>;
+@{
+
+}
+
+<div class="container">
+
+
+    <a disabled="disabled" class="btn btn-success rounded mb-1" asp-action="CrearOferta">
+        Crear Oferta</a>
+
+
+
+@{int index =0;}
+        @foreach (var item in Model)
+        {
+
+                <div class="rounded bg-light border my-2">
+
+
+                        <div class="container mb-3">
+                                <div class="row py-2">
+                                        <div class="col-1">@Html.DisplayFor(modelItem => item.Id)</div>
+                                        <div class="col-2">
+                                                @Html.DisplayFor(modelItem => item.Descripcion)
+
+
+                                        </div>
+                                        <div class="col-3">
+                                                @Html.DisplayFor(modelItem => item.Tipo)
+
+                                        </div>
+                                        <div class="col-3">
+                                                @Html.DisplayFor(modelItem => item.Categoria)
+                                        </div>
+                                        <div class="col-1">@Html.DisplayFor(modelItem => item.MinQty)</div>
+                                        <div class="col-1">@Html.DisplayFor(modelItem => item.MaxQty)</div>
+
+                                </div>
+                                <div class="row">
+                                        <div class="col-2"><h3>@Html.DisplayFor(modelItem => item.Porcentaje)</h3></div>
+                                        <div class="col-3">@Html.DisplayFor(modelItem => item.FechaInicio)</div>
+                                        <div class="col-3">@Html.DisplayFor(modelItem => item.FechaInicio)</div>
+                                        <div class="col-4">
+                                                
+                                                <a class="btn btn-success" asp-action="AgregarProducto" asp-route-id=@item.Id>
+                                                        <strong> Añadir Producto </strong>
+                                                </a>
+                                                <button class="btn btn-primary"type="button"
+                                                                 data-bs-toggle="collapse"
+                                                                 data-bs-target="#collapse@(index + 1)"
+                                                                 aria-expanded="false"
+                                                                 aria-controls="collapse@(index + 1)">
+                                                        <strong> @Html.Raw(item.Productos.Count()) </strong>
+                                                </button>
+                                        
+                                                <button class="btn btn-warning"type="button">
+                                                        <strong> Editar </strong>
+                                                </button>
+                                                <a disabled="disabled" class="btn btn-danger" asp-action="EliminarOferta" asp-route-id=@item.Id>
+
+                                                        <strong> Eliminar </strong>
+                                                </a>
+                                        </div>
+                                </div>
+                        </div>
+                        
+                        <div class="container collapse" id="collapse@(index + 1)">
+                                <div class="border rounded p-1">
+                                        <div class="row">
+                                                @foreach (var producto in item.Productos)
+                                                {
+                                                        <div class="col-2 ">
+                                                                <div class=" border rounded p-1 m-1">
+                                                                <table >
+                                                                        <tr>
+                                                                                <td>
+                                                                @Html.DisplayFor(modelItem => producto.Nombre)
+
+                                                                                </td>
+                                    </tr>
+                                    <tr>
+                                                                                <td>
+                                                                @Html.DisplayFor(modelItem => producto.Precio)
+
+                                                                                </td>
+                                    </tr>
+                                    <tr>
+                                    <td class="text-danger">
+                                                                @{ decimal valorDesc =producto.Precio-(producto.Precio * item.Porcentaje);}
+
+                                                                @Html.Raw(valorDesc)
+
+                                                                                </td>
+                                                                        </tr>
+                                                                </table>
+                                                                </div>
+                                                        </div>
+
+                                                }
+
+                                        </div>
+
+                                </div>
+
+                        </div>
+                </div>
+        index++;
+        }
+        </table>
+
+
+</div>

@@ -1,0 +1,105 @@
+﻿using AdventureWorks.Helper;
+using AdventureWorks.Models.Context;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
+
+namespace AdventureWorks.Controllers
+{
+    public class LoginController : Controller
+    {
+        private readonly AdventureWorks2019Context _context;
+        private readonly ILogger<LoginController> _logger;
+
+        public LoginController(AdventureWorks2019Context context, ILogger<LoginController> logger)
+        {
+            _context = context;
+            _logger = logger;
+        }
+
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cEmail"></param>
+        /// <param name="cPassword"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IActionResult> Login(string cEmail, string cPassword)
+        {
+            var userInfo = await (from P in _context.People
+                                  join EA in _context.EmailAddresses on P.BusinessEntityId equals EA.BusinessEntityId
+                                  join PS in _context.Passwords on P.BusinessEntityId equals PS.BusinessEntityId
+                                  where EA.EmailAddress1 == cEmail
+                                  select new
+                                  {
+                                      IDEmployee = P.BusinessEntityId,
+                                      Nombre = P.FirstName,
+                                      Apellido = P.LastName,
+                                      Email = EA.EmailAddress1,
+                                      Password = PS.PasswordHash
+                                  }). SingleOrDefaultAsync();
+
+            if (userInfo != null)
+            {
+                if (Argon2PasswordHasher.VerifyHashedPassword(userInfo.Password, cPassword)) //se cambia verificación
+                {
+                    //var claims = new List<Claim>();
+
+                    //claims = new List<Claim>
+                    //{
+                    //    new Claim(ClaimTypes.Name, userInfo.IDEmployee.ToString()),
+                    //    new Claim(ClaimTypes.NameIdentifier, userInfo.IDEmployee.ToString()),
+                    //    new Claim(ClaimTypes.GivenName, userInfo.Nombre),
+                    //    new Claim(ClaimTypes.Surname, userInfo.Apellido.ToString()),
+                    //    new Claim(ClaimTypes.Email, userInfo.Email.ToString()),
+                    //};
+
+                    //var allPermisos = userInfo.IDsPermiso;
+
+                    //foreach (var permiso in allPermisos)
+                    //{
+                    //    claims.Add(new Claim("Permiso", permiso.ToString()));
+                    //}
+
+                    //var claimsIdentity = new ClaimsIdentity(claims, "CookieAuth");
+
+                    //await HttpContext.SignInAsync(
+                    //    "CookieAuth",
+                    //    new ClaimsPrincipal(claimsIdentity));
+
+                    _logger.LogInformation("User: {} successfully logged in", userInfo.Email);
+
+                    return RedirectToAction("Index", "Home");
+                }
+                TempData["ErrorMessage"] = "Email o Contraseña Incorrectos";
+                return RedirectToAction("Index", "Login");
+            }
+            TempData["ErrorMessage"] = "Email o Contraseña Incorrectos";
+            return RedirectToAction("Index", "Login");
+        }
+
+        public async Task<IActionResult> Hashing(string hash)
+        {
+            var a = Argon2PasswordHasher.HashPassword(hash);
+
+            var info = a.ToString();
+
+            return View();
+        }
+
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync("CookieAuth");
+            return RedirectToAction("Index", "Login");
+        }
+
+    }
+}

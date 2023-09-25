@@ -1,0 +1,127 @@
+﻿@model AdventureWorks.Dto.OfertaDto;
+@{
+}
+
+<div class="rounded bg-light border my-2">
+
+
+    <div class="container mb-3">
+        <div class="row p-2">
+            <div class="col-4">
+                @Html.DisplayFor(model => model.Descripcion)
+
+
+            </div>
+            <div class="col-3">
+                @Html.DisplayFor(model => model.Tipo)
+
+            </div>
+            <div class="col-3">
+                @Html.DisplayFor(model => model.Categoria)
+            </div>
+            <div class="col-1">@Html.DisplayFor(model => model.MinQty)</div>
+            <div class="col-1">@Html.DisplayFor(model => model.MaxQty)</div>
+
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <h3>@Html.DisplayFor(model => model.Porcentaje)</h3>
+            </div>
+            <div class="col-3">@Html.DisplayFor(model => model.FechaInicio)</div>
+            <div class="col-3">@Html.DisplayFor(model => model.FechaInicio)</div>
+            <div class="col-3">
+                @* <button class="btn btn-primary" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapse@(index + 1)"
+                aria-expanded="false"
+                aria-controls="collapse@(index + 1)">
+                <strong> @Html.Raw(item.Productos.Count()) </strong>
+                </button>*@
+
+
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-12 p-2">
+                <div class="border rounded">
+                    <table>
+                        <tr>
+                            <th>
+                                Nombre
+                            </th>
+                            <th>
+                                Numero
+                            </th>
+                            <th>
+                                Color
+                            </th>
+                            <th>
+                                CostoEstandar
+                            </th>
+                            <th>
+                                Precio
+                            </th>
+
+                            <th>
+                                Valor Descuento
+                            </th>
+                            <th>
+                                Tamaño
+                            </th>
+                            <th>
+                                Peso
+                            </th>
+                            <th>
+                                Clase
+                            </th>
+                            <th>
+                                Estilo
+                            </th>
+                            <th>
+                                Categoria
+                            </th>
+                            <th>
+                                Modelo
+                            </th>
+                            <th>
+                                Venta Inicio
+                            </th>
+                            <th>
+                                Venta Fin
+                            </th>
+                            <th>
+                                Fecha Ofertado
+                            </th>
+                        </tr>
+                        @foreach (AdventureWorks.Dto.ProductoDto producto in ViewData["productos"] as List<AdventureWorks.Dto.ProductoDto>)
+                        {
+                        <tr>
+                                <td>@Html.Raw(producto.Nombre)</td>
+                                <td>@Html.Raw(producto.Numero)</td>
+                                <td>@Html.Raw(producto.Color)</td>
+                                <td>@Html.Raw(producto.CostoEstandar)</td>
+                                <td>@Html.Raw(producto.Precio)</td>
+                                @{
+                                    decimal valorDesc = producto.Precio - (producto.Precio * Model.Porcentaje);
+                                }
+                                <td>@Html.Raw(valorDesc)</td>
+
+                                <td>@Html.Raw(producto.Tamaño)</td>
+                                <td>@Html.Raw(producto.Peso)</td>
+                                <td>@Html.Raw(producto.Clase)</td>
+                                <td>@Html.Raw(producto.Estilo)</td>
+                                <td>@Html.Raw(producto.Categoria)</td>
+                                <td>@Html.Raw(producto.VentaInicio)</td>
+                                <td>@Html.Raw(producto.VentaFin)</td>
+                                <td>@Html.Raw(producto.UltimoCambioOferta)</td>
+                        </tr>
+                        }
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
