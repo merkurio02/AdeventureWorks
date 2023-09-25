@@ -21,6 +21,7 @@
         public DateTime? FechaDescontinuado { get; set; }
         public DateTime? UltimoCambio { get; set; }
         public DateTime? UltimoCambioOferta { get; set; }
+        public bool IsSelected { get; set; }=false;
 
     }
 }

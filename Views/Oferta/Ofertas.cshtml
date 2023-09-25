@@ -21,16 +21,16 @@
                         <div class="container mb-3">
                                 <div class="row py-2">
                                         <div class="col-1">@Html.DisplayFor(modelItem => item.Id)</div>
-                                        <div class="col-2">
+                                        <div class="col-5">
                                                 @Html.DisplayFor(modelItem => item.Descripcion)
 
 
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-2">
                                                 @Html.DisplayFor(modelItem => item.Tipo)
 
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-2">
                                                 @Html.DisplayFor(modelItem => item.Categoria)
                                         </div>
                                         <div class="col-1">@Html.DisplayFor(modelItem => item.MinQty)</div>
@@ -38,28 +38,31 @@
 
                                 </div>
                                 <div class="row">
-                                        <div class="col-2"><h3>@Html.DisplayFor(modelItem => item.Porcentaje)</h3></div>
-                                        <div class="col-3">@Html.DisplayFor(modelItem => item.FechaInicio)</div>
-                                        <div class="col-3">@Html.DisplayFor(modelItem => item.FechaInicio)</div>
-                                        <div class="col-4">
-                                                
-                                                <a class="btn btn-success" asp-action="AgregarProducto" asp-route-id=@item.Id>
-                                                        <strong> Añadir Producto </strong>
-                                                </a>
-                                                <button class="btn btn-primary"type="button"
-                                                                 data-bs-toggle="collapse"
-                                                                 data-bs-target="#collapse@(index + 1)"
-                                                                 aria-expanded="false"
-                                                                 aria-controls="collapse@(index + 1)">
-                                                        <strong> @Html.Raw(item.Productos.Count()) </strong>
-                                                </button>
-                                        
-                                                <button class="btn btn-warning"type="button">
-                                                        <strong> Editar </strong>
-                                                </button>
-                                                <a disabled="disabled" class="btn btn-danger" asp-action="EliminarOferta" asp-route-id=@item.Id>
+                    <div class="col-3"><h3>@Html.Raw( item.Porcentaje/100)</h3></div>
+                    <div class="col-3">@Html.Raw( item.FechaInicio.ToShortDateString())</div>
+                    <div class="col-3">@Html.Raw( item.FechaFin.ToShortDateString())</div>
 
-                                                        <strong> Eliminar </strong>
+                                        <div class="col-2">
+                        <button class="btn btn-primary" type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#collapse@(index + 1)"
+                                aria-expanded="false"
+                                aria-controls="collapse@(index + 1)">
+                           Ver Productos ( @Html.Raw(item.Productos.Count()) ) 
+                        </button>
+                                                <a class="btn btn-success" asp-action="AgregarProducto" asp-route-id=@item.Id>
+                                                        Añadir Producto 
+                                                </a>
+
+                    </div>
+                    <div class="col-1">
+                        <a  class="btn btn-warning" asp-action="EditarOferta" asp-route-id=@item.Id>
+
+                            Editar
+                        </a>
+                                                <a class="btn btn-danger" asp-action="EliminarOferta" asp-route-id=@item.Id>
+
+                                                         Eliminar 
                                                 </a>
                                         </div>
                                 </div>
@@ -87,7 +90,7 @@
                                     </tr>
                                     <tr>
                                     <td class="text-danger">
-                                                                @{ decimal valorDesc =producto.Precio-(producto.Precio * item.Porcentaje);}
+                                                                @{ decimal valorDesc =producto.Precio-(producto.Precio * item.Porcentaje/100);}
 
                                                                 @Html.Raw(valorDesc)
 

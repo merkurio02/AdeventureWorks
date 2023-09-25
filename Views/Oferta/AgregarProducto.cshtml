@@ -27,8 +27,12 @@
             <div class="col-3">
                 <h3>@Html.DisplayFor(model => model.Porcentaje)</h3>
             </div>
-            <div class="col-3">@Html.DisplayFor(model => model.FechaInicio)</div>
-            <div class="col-3">@Html.DisplayFor(model => model.FechaInicio)</div>
+            <div class="col-3">
+                @Html.Raw(Model.FechaInicio.ToShortDateString())
+            </div>
+            <div class="col-3">
+                @Html.Raw(Model.FechaFin.ToShortDateString())
+            </div>
             <div class="col-3">
                 @* <button class="btn btn-primary" type="button"
                 data-bs-toggle="collapse"
@@ -45,83 +49,47 @@
 
         <div class="row">
             <div class="col-12 p-2">
-                <div class="border rounded">
-                    <table>
+                <div class="border rounded" style="max-height:500px; overflow:scroll">
+                    <table class="table">
                         <tr>
-                            <th>
-                                Nombre
-                            </th>
-                            <th>
-                                Numero
-                            </th>
-                            <th>
-                                Color
-                            </th>
-                            <th>
-                                CostoEstandar
-                            </th>
-                            <th>
-                                Precio
-                            </th>
-
-                            <th>
-                                Valor Descuento
-                            </th>
-                            <th>
-                                Tamaño
-                            </th>
-                            <th>
-                                Peso
-                            </th>
-                            <th>
-                                Clase
-                            </th>
-                            <th>
-                                Estilo
-                            </th>
-                            <th>
-                                Categoria
-                            </th>
-                            <th>
-                                Modelo
-                            </th>
-                            <th>
-                                Venta Inicio
-                            </th>
-                            <th>
-                                Venta Fin
-                            </th>
-                            <th>
-                                Fecha Ofertado
-                            </th>
+                            <th>Añadir </th>
+                            <th>Nombre</th>
+                            <th>Numero</th>
+                            <th>Color</th>
+                            <th>Precio</th>
+                            <th>Valor Descuento</th>
+                            <th>Clase</th>
+                            <th>Venta Inicio</th>
+                            <th>Venta Fin</th>
+                            <th>Fecha Ofertado</th>
                         </tr>
-                        @foreach (AdventureWorks.Dto.ProductoDto producto in ViewData["productos"] as List<AdventureWorks.Dto.ProductoDto>)
+                        @foreach (AdventureWorks.Dto.ProductoDto producto in Model.AllProductos)
                         {
-                        <tr>
+                            int index = Model.AllProductos.IndexOf(producto);
+                            <tr>
+                                <td>@Html.CheckBoxFor(model => model.AllProductos[index].IsSelected)</td>
                                 <td>@Html.Raw(producto.Nombre)</td>
                                 <td>@Html.Raw(producto.Numero)</td>
                                 <td>@Html.Raw(producto.Color)</td>
-                                <td>@Html.Raw(producto.CostoEstandar)</td>
                                 <td>@Html.Raw(producto.Precio)</td>
                                 @{
                                     decimal valorDesc = producto.Precio - (producto.Precio * Model.Porcentaje);
                                 }
                                 <td>@Html.Raw(valorDesc)</td>
 
-                                <td>@Html.Raw(producto.Tamaño)</td>
-                                <td>@Html.Raw(producto.Peso)</td>
                                 <td>@Html.Raw(producto.Clase)</td>
-                                <td>@Html.Raw(producto.Estilo)</td>
-                                <td>@Html.Raw(producto.Categoria)</td>
-                                <td>@Html.Raw(producto.VentaInicio)</td>
-                                <td>@Html.Raw(producto.VentaFin)</td>
-                                <td>@Html.Raw(producto.UltimoCambioOferta)</td>
+                                <td>@Html.Raw(producto.VentaInicio.ToShortDateString())</td>
+                                <td>@Html.Raw(producto.VentaFin?.ToShortDateString())</td>
+                                <td>@Html.Raw(producto.UltimoCambioOferta?.ToShortDateString())</td>
                         </tr>
                         }
                     </table>
 
                 </div>
             </div>
+        </div>
+        <div>
+            <button class="btn btn-primary" s>Guardar</button>
         </div>
     </div>
 </div>

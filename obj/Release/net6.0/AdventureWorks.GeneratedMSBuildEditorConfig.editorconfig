@@ -9,69 +9,65 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = AdventureWorks
 build_property.RootNamespace = AdventureWorks
-build_property.ProjectDir = C:\Users\Consultor\Desktop\proyecto dotnetto\Prueba\prueba repo\AdeventureWorks\
+build_property.ProjectDir = C:\Users\Consultor\Desktop\proyecto dotnetto\Prueba\Prueba\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Consultor\Desktop\proyecto dotnetto\Prueba\prueba repo\AdeventureWorks
+build_property.MSBuildProjectDirectory = C:\Users\Consultor\Desktop\proyecto dotnetto\Prueba\Prueba
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/prueba repo/AdeventureWorks/Views/Home/AccesDenied.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBY2Nlc0RlbmllZC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/prueba repo/AdeventureWorks/Views/Home/Index.cshtml]
+[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/Prueba/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/prueba repo/AdeventureWorks/Views/Home/Privacy.cshtml]
+[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/Prueba/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/prueba repo/AdeventureWorks/Views/Login/hashing.cshtml]
+[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/Prueba/Views/Login/hashing.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5caGFzaGluZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/prueba repo/AdeventureWorks/Views/Login/Index.cshtml]
+[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/Prueba/Views/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/prueba repo/AdeventureWorks/Views/Oferta/AgregarProducto.cshtml]
+[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/Prueba/Views/Oferta/AgregarProducto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZlcnRhXEFncmVnYXJQcm9kdWN0by5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/prueba repo/AdeventureWorks/Views/Oferta/CrearOferta.cshtml]
+[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/Prueba/Views/Oferta/CrearOferta.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZlcnRhXENyZWFyT2ZlcnRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/prueba repo/AdeventureWorks/Views/Oferta/EditarOferta.cshtml]
+[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/Prueba/Views/Oferta/EditarOferta.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZlcnRhXEVkaXRhck9mZXJ0YS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/prueba repo/AdeventureWorks/Views/Oferta/EliminarOferta.cshtml]
+[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/Prueba/Views/Oferta/EliminarOferta.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZlcnRhXEVsaW1pbmFyT2ZlcnRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/prueba repo/AdeventureWorks/Views/Oferta/Ofertas.cshtml]
+[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/Prueba/Views/Oferta/Ofertas.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZlcnRhXE9mZXJ0YXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/prueba repo/AdeventureWorks/Views/Shared/Error.cshtml]
+[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/Prueba/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/prueba repo/AdeventureWorks/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/Prueba/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/prueba repo/AdeventureWorks/Views/_ViewImports.cshtml]
+[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/Prueba/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/prueba repo/AdeventureWorks/Views/_ViewStart.cshtml]
+[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/Prueba/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/prueba repo/AdeventureWorks/Views/Shared/_Layout.cshtml]
+[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/Prueba/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-xae1gji8c0

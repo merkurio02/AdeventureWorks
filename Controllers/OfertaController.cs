@@ -1,6 +1,7 @@
 ﻿using AdventureWorks.Dto;
 using AdventureWorks.Models;
 using AdventureWorks.Repository;
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -29,11 +30,11 @@ namespace AdventureWorks.Controllers
             OfertaDto oferta = await _ofertaRepository.GetOfertasById(id);
             List<ProductoDto> productos = await _ofertaRepository.getProductos();
             List<ProductoDto> productosf = productos;
-
             foreach (ProductoDto producto in oferta.Productos)
             {
                 productosf = productosf.FindAll(p => p.Id != producto.Id);
             }
+            oferta.AllProductos = productosf;
 
             ViewData["productos"] = productosf;
             
@@ -69,6 +70,9 @@ namespace AdventureWorks.Controllers
             return RedirectToAction(nameof(Ofertas));
         }
 
+        public async void Agregar([Bind()] OfertaDto oferta)
+        {
+        }
 
         [HttpPost]
         public async Task<IActionResult> Create([Bind("Descripcion,Tipo,Categoria,MinQty,MaxQty,Porcentaje,FechaInicio,FechaFin")] OfertaDto oferta)
@@ -95,7 +99,7 @@ namespace AdventureWorks.Controllers
             {
                 try
                 {
-                    int resp = await _ofertaRepository.createOffert(oferta);
+                    int resp = await _ofertaRepository.UpdateOferta(oferta);
                 }
                 catch (Exception ex)
                 {

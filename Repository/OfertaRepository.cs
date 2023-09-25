@@ -31,12 +31,12 @@ namespace AdventureWorks.Repository
                 oferta.Descripcion = item.Description;
                 oferta.Tipo = item.Type;
                 oferta.Categoria = item.Category;
-                oferta.FechaInicio = item.StartDate.ToShortDateString();
-                oferta.FechaFin=item.EndDate.ToShortDateString(); 
+                oferta.FechaInicio = item.StartDate;
+                oferta.FechaFin=item.EndDate; 
                 oferta.MinQty = item.MinQty;
                 oferta.MaxQty=item.MaxQty;
                 oferta.UltimaModificacion = item.ModifiedDate.ToShortDateString();
-                oferta.Porcentaje = item.DiscountPct;
+                oferta.Porcentaje = (int)(item.DiscountPct * 100);
 
                 oferta.Productos = new();
                 foreach(var item2 in item.SpecialOfferProducts)
@@ -88,12 +88,12 @@ namespace AdventureWorks.Repository
                 oferta.Descripcion = item.Description;
                 oferta.Tipo = item.Type;
                 oferta.Categoria = item.Category;
-                oferta.FechaInicio = item.StartDate.ToShortDateString();
-                oferta.FechaFin = item.EndDate.ToShortDateString();
+                oferta.FechaInicio = item.StartDate;
+                oferta.FechaFin = item.EndDate;
                 oferta.MinQty = item.MinQty;
                 oferta.MaxQty = item.MaxQty;
                 oferta.UltimaModificacion = item.ModifiedDate.ToShortDateString();
-                oferta.Porcentaje = item.DiscountPct;
+                oferta.Porcentaje = item.DiscountPct*100;
                 oferta.Productos = new();
                 foreach (var item2 in item.SpecialOfferProducts)
                 {
@@ -165,8 +165,8 @@ namespace AdventureWorks.Repository
             offer.DiscountPct = oferta.Porcentaje/100;
             offer.Type = oferta.Tipo;
             offer.Category = oferta.Categoria;
-            offer.StartDate = DateTime.Parse(oferta.FechaInicio);
-            offer.EndDate = DateTime.Parse(oferta.FechaFin);
+            offer.StartDate = oferta.FechaInicio;
+            offer.EndDate = oferta.FechaFin;
             offer.MinQty= oferta.MinQty;
             offer.MaxQty= oferta.MaxQty;
             offer.ModifiedDate = DateTime.Now;
@@ -218,8 +218,8 @@ namespace AdventureWorks.Repository
             offer.DiscountPct = oferta.Porcentaje / 100;
             offer.Type = oferta.Tipo;
             offer.Category = oferta.Categoria;
-            offer.StartDate = DateTime.Parse(oferta.FechaInicio);
-            offer.EndDate = DateTime.Parse(oferta.FechaFin);
+            offer.StartDate = oferta.FechaInicio;
+            offer.EndDate = oferta.FechaFin;
             offer.MinQty = oferta.MinQty;
             offer.MaxQty = oferta.MaxQty;
             offer.ModifiedDate = DateTime.Now;
