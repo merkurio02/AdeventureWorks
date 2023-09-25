@@ -70,8 +70,27 @@ namespace AdventureWorks.Controllers
             return RedirectToAction(nameof(Ofertas));
         }
 
-        public async void Agregar([Bind()] OfertaDto oferta)
+        public async Task<IActionResult> Agregar([Bind()] OfertaDto oferta)
         {
+
+
+            List<ProductoDto>produ = oferta.AllProductos.FindAll(e=>e.IsSelected).ToList();
+            List<OfertaProductoDto> list = new();
+
+            foreach (ProductoDto prod in produ)
+            {
+                OfertaProductoDto OD = new()
+                {
+                    ProductId = prod.Id,
+                    OfferId = oferta.Id
+                };
+                list.Add(OD);
+            }
+
+            int resp =await _ofertaRepository.addProductToOffer(list);
+            return RedirectToAction(nameof(Ofertas));
+
+            //return RedirectToAction(nameof(EditarOferta), oferta.Id);
         }
 
         [HttpPost]

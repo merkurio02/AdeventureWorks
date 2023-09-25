@@ -179,6 +179,7 @@ namespace AdventureWorks.Repository
         }
 
         public void updateOffertData() { }
+
         public async void addProductToOffer(int idOferta,int idProducto) {
         
             SpecialOfferProduct sop= new SpecialOfferProduct();
@@ -189,7 +190,26 @@ namespace AdventureWorks.Repository
             await _context.AddAsync(sop);
             await _context.SaveChangesAsync();
         }
-        public async Task<int> deleteOffert(int idOffer) {
+        public async Task<int> addProductToOffer(List<OfertaProductoDto> OPs)
+        {
+            List<SpecialOfferProduct> list = new List<SpecialOfferProduct>();
+            foreach (OfertaProductoDto item in OPs)
+            {
+                SpecialOfferProduct sop = new SpecialOfferProduct()
+                {
+                    ProductId = item.ProductId,
+                    ModifiedDate = DateTime.Now,
+                    SpecialOfferId = item.OfferId
+                };
+                list.Add(sop);
+            }
+
+            await _context.AddRangeAsync(list);
+            return await _context.SaveChangesAsync();
+        }
+        
+
+            public async Task<int> deleteOffert(int idOffer) {
 
 
             SpecialOffer ofer = _context.SpecialOffers.Include(of => of.SpecialOfferProducts).Where(of => of.SpecialOfferId == idOffer).FirstOrDefault();

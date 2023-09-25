@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Consultor\Desktop\proyecto dotnetto\Prueba\Prueba
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/Prueba/Views/Home/AccesDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBY2Nlc0RlbmllZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Consultor/Desktop/proyecto dotnetto/Prueba/Prueba/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

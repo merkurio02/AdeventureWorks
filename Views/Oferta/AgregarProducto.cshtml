@@ -3,8 +3,8 @@
 }
 
 <div class="rounded bg-light border my-2">
-
-
+    <form asp-action="Agregar">
+    @Html.HiddenFor(model=>model.Id)
     <div class="container mb-3">
         <div class="row p-2">
             <div class="col-4">
@@ -46,7 +46,7 @@
             </div>
         </div>
 
-
+        
         <div class="row">
             <div class="col-12 p-2">
                 <div class="border rounded" style="max-height:500px; overflow:scroll">
@@ -67,13 +67,14 @@
                         {
                             int index = Model.AllProductos.IndexOf(producto);
                             <tr>
+                                @Html.HiddenFor(model => model.AllProductos[index].Id)
                                 <td>@Html.CheckBoxFor(model => model.AllProductos[index].IsSelected)</td>
                                 <td>@Html.Raw(producto.Nombre)</td>
                                 <td>@Html.Raw(producto.Numero)</td>
                                 <td>@Html.Raw(producto.Color)</td>
                                 <td>@Html.Raw(producto.Precio)</td>
                                 @{
-                                    decimal valorDesc = producto.Precio - (producto.Precio * Model.Porcentaje);
+                                    decimal valorDesc = producto.Precio - (producto.Precio * Model.Porcentaje/100);
                                 }
                                 <td>@Html.Raw(valorDesc)</td>
 
@@ -88,8 +89,11 @@
                 </div>
             </div>
         </div>
+       
         <div>
-            <button class="btn btn-primary" s>Guardar</button>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+
         </div>
+        </form>
     </div>
 </div>

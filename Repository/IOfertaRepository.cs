@@ -14,5 +14,7 @@ namespace AdventureWorks.Repository
         Task<int> UpdateOferta(OfertaDto oferta);
         Task<List<ProductoDto>> getProductos();
         Task<int> deleteOffert(int idOffer);
+
+        Task<int> addProductToOffer(List<OfertaProductoDto> OPs);
     }
 }
